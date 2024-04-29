@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'logincss/css/style.css' %}">
+    <title>Document</title>
+    
+</head>
+<style>
+.messages{
+    transition: opacity 1s ease-in-out;
+}
+.hidden{
+    display: none;
+}
+</style>
+<body> <section class="container forms">
+    <div class="form login">
+        <div class="form-content">
+    <header>Agent Register</header>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+ 
+
+                    <form action=" " method="post">
+                        {% csrf_token %}
+                        <div class="field input-field">
+                            <input type="name" placeholder="name" name="agname" class="input"  required>
+                        </div>
+                       
+                        <div class="field input-field">
+                            <input type="email" placeholder="Email" name="agemail" class="input" required pattern="[a-zA-Z0-9._%+-]+@gmail\.com$" title="Please enter a valid Gmail address (e.g., username@gmail.com)">
+                        </div>
+                        
+                        
+
+                        
+                        
+                        
+                        
+                        <div class="field input-field">
+                            <input type="tel" placeholder="phone" name="phone" pattern="[0-9]{10}" title="Please enter a 10 digit phone number"  class="input" required>
+                        </div>
+                        <div>
+                        <div class="field input-field">
+                            <input type="password" placeholder="Password" name="password" class="password" required>
+                            <i class='bx bx-hide eye-icon'></i>
+                        </div>
+                        
+                            <div class="field button-field">
+                                <button>Register</button>
+                            </div>
+                        </form> 
+                        <div class="form-link">
+                            <span>Already registered </span> <a href="/agentlogin/" >login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+<script src="{% static 'logincss/js/script.js' %}"></script>
+<script>
+    setTimeout(function(){
+        document.querySelector('.messages').classList.add('hidden');
+    }, 2000);
+</script>
+
+    
+
+</body>
+</html>

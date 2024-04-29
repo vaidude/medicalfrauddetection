@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'logincss/css/style.css' %}">
+    <title>Document</title>
+</head>
+<style>
+.messages{
+    transition: opacity 1s ease-in-out;
+}
+.hidden{
+    display: none;
+}
+</style>
+<body> <section class="container forms">
+    <div class="form login">
+        <div class="form-content">
+    <header>Admin Register</header>
+    {% if error_messages %}
+     <ul class="messages">
+        {% for message in error_messages %}
+        <li{% if message.tags %}  class="{{message.tags}}"{% endif %}>{{message}}</li>
+        {% endfor %}
+
+     </ul>
+     {% endif %}
+
+                    <form action=" " method="post">
+                        {% csrf_token %}
+                        <div class="field input-field">
+                            <input type="name" placeholder="name" name="name" class="input"  required>
+                        </div>
+                       
+                        <div class="field input-field">
+                            <input type="email" placeholder="Email" name="email" name="email" class="input" required>
+                        </div>
+                        <div>
+                        <div class="field input-field">
+                            <input type="password" placeholder="Password" name="password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,}" title="Password must contain at least 8 characters, including at least one lowercase letter, one uppercase letter, one digit, and one special character." class="password" required>
+                            <i class='bx bx-hide eye-icon'></i>
+                        </div>
+                        
+                            <div class="field button-field">
+                                <button>Register</button>
+                            </div>
+                        </form> 
+                        <div class="form-link">
+                            <span>Already registered </span> <a href="/admlog/" >login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+<script src="{% static 'logincss/js/script.js' %}"></script>
+<script>
+    setTimeout(function(){
+        document.querySelector('.messages').classList.add('hidden');
+    }, 2000);
+</script>
+    
+
+</body>
+</html>

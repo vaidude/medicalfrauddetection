@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="a.css">
+  <title>User Registration Form</title>
+  <style>
+/* Basic styling for the form */
+.user-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+/* Styling for form labels */
+.user-form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Styling for form inputs */
+.user-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+/* Style for the submit button */
+.user-form button {
+
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
+
+.user-form button:hover {
+  background-color: #45a049;
+}
+.back{
+  padding-left:300px;
+}
+  </style>
+</head>
+<body style="background-color: #4517b0";>
+  <br><div><center>{% for msg in  messages %}
+    <div style="background-color:aquamarine;" class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Hey!</strong> {{ msg }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    
+    {% endfor %}
+    </center>
+  </div><br><br>
+
+  <div class="user-form">
+   
+    <form  method="post" action="/proupdate/" name="form1">
+        {% csrf_token %}
+    <label for="username">First name:</label>
+    <input type="text" class="form-control" name="fname" value="{{fname}}">
+
+    <label for="username">Last name:</label>
+    <input type="text" class="form-control" name="lname" value="{{lname}}">
+
+    <label for="email">Email:</label>
+    <input type="text" class="form-control" name="email" value="{{email}}" readonly>
+
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" name="pwd" value="{{pwd}}">
+
+    <label for="confirm-password">Confirm Password:</label>
+    <input type="password" class="form-control" name="cpwd" value="{{cpwd}}">
+	
+    <label for="gender">Gender:</label>
+    <input type="Gender" id="Gender" name="gender" value="{{gender}}" readonly>
+	                                          
+
+    <center><button  type="submit">Update</button></center>
+
+
+    <span class="back">Back to</span> <a href="/home/" >Home</a>
+  </div> 
+  
+  
+  
+</body>
+</html>

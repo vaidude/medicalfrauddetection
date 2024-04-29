@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        strong {
+            font-weight: bold;
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: blue;"><center>Patient Details</center> </h1>
+        <!-- <p><strong>Provider:</strong> {{ patient.provider }}</p>
+        <p><strong>BeneficiaryId:</strong> {{ patient.BeneficiaryId }}</p> -->
+        <p><strong>InscClaimAmtReimbursed:</strong> {{ patient.InscClaimAmtReimbursed }}</p>
+        <p><strong>DeductibleAmtPaid:</strong> {{ patient.DeductibleAmtPaid }}</p>
+        <p><strong> Claims BeforeSimilar:</strong> {{ patient.PotentialFraud }}</p>
+        <p><strong>Gender:</strong> {{ patient.gender }}</p>
+        <p><strong>Race:</strong> {{ patient.race }}</p>
+        <p><strong>Renal Disease Indicator:</strong> {{ patient.RenalDiseaseIndicator }}</p>
+        <p><strong>No of Months Part A Coverage:</strong> {{ patient.NoOfMonths_PartACov }}</p>
+        <p><strong>No of Months Part B Coverage:</strong> {{ patient.NoOfMonths_PartBCov }}</p>
+        <p><strong>Chronic Condition Alzheimer:</strong> {{ patient.ChronicCond_Alzheimer }}</p>
+        <p><strong>Chronic Condition Heart Failure:</strong> {{ patient.ChronicCond_Heartfailure }}</p>
+        <p><strong>Chronic Condition Kidney Disease:</strong> {{ patient.ChronicCond_KidneyDisease }}</p>
+        <p><strong>Chronic Condition Cancer:</strong> {{ patient.ChronicCond_Cancer }}</p>
+        <p><strong>Chronic Condition ObstrPulmonary:</strong> {{ patient.ChronicCond_ObstrPulmonary }}</p>
+        <p><strong>Chronic Condition Depression:</strong> {{ patient.ChronicCond_Depression }}</p>
+        <p><strong>Chronic Condition Diabetes:</strong> {{ patient.ChronicCond_Diabetes }}</p>
+        <p><strong>Chronic Condition Ischemic Heart:</strong> {{ patient.ChronicCond_IschemicHeart }}</p>
+        <p><strong>Chronic Condition Osteoporosis:</strong> {{ patient.ChronicCond_Osteoporasis }}</p>
+        <p><strong>Chronic Condition Rheumatoid Arthritis:</strong> {{ patient.ChronicCond_rheumatoidarthritis }}</p>
+        <p><strong>Chronic Condition Stroke:</strong> {{ patient.ChronicCond_stroke }}</p>
+        <p><strong>IP Annual Reimbursement Amt:</strong> {{ patient.IPAnnualReimbursementAmt }}</p>
+        <p><strong>IP Annual Deductible Amt:</strong> {{ patient.IPAnnualDeductibleAmt }}</p>
+        <p><strong>OP Annual Reimbursement Amt:</strong> {{ patient.OPAnnualReimbursementAmt }}</p>
+        <p><strong>OP Annual Deductible Amt:</strong> {{ patient.OPAnnualDeductibleAmt }}</p>
+        
+        <h1 style="color: green;"><center>Prediction Result</center></h1>
+        <p><strong>Prediction with features(PotentialFraud):</strong> {{ patient.prediction_result }}</p>
+        <!-- <p><strong>Prediction Based on Provider(PotentialFraud):</strong> {{ results }}</p> -->
+        <p><strong>fraud probability:</strong> {{ fraud_probability }}</p>
+        <!-- Display the prediction result here -->
+    </div>
+</body>
+</html>

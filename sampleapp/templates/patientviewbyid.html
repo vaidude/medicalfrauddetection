@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+</head>
+<style>
+    /* Style the form container */
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Style form labels */
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Style form inputs */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="number"],
+.form-container select {
+  width: calc(100% - 12px);
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+/* Style submit button */
+.form-container input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+/* Style success message */
+.success-message {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #4CAF50;
+  border-radius: 3px;
+  background-color: #E9FFE5;
+  color: #4CAF50;
+}
+
+</style>
+<body>
+    <div class="container mt-5">
+    <form action="/patientviewbyid2/" method="post" class="form-container">
+        {% csrf_token %}
+      <div class="mb-3">
+        
+
+    <!-- <form action="" method="post"> -->
+         <label for="agemail">Agent Email:</label><br>
+                <input type="email" id="agemail" name="agemail" value="{{ agemail }}" readonly><br>
+
+                <!-- <label for="Provider">Provider:</label><br>
+                <input type="text" id="Provider" name="provider" value="{{ Provider }}" readonly><br> -->
+
+                <label for="BeneficiaryId">Beneficiary ID:</label><br>
+                <input type="text" id="BeneficiaryId" name="BeneficiaryId" value="{{ BeneficiaryId }}" readonly><br>
+
+                <label for="InscClaimAmtReimbursed">Insc Claim Amt Reimbursed:</label><br>
+                <input type="text" id="InscClaimAmtReimbursed" name="InscClaimAmtReimbursed" value="{{ InscClaimAmtReimbursed }}" readonly><br>
+
+                <label for="DeductibleAmtPaid">Deductible Amt Paid:</label><br>
+                <input type="text" id="DeductibleAmtPaid" name="DeductibleAmtPaid" value="{{ DeductibleAmtPaid }}" readonly><br>
+
+        <label for="PotentialFraud">PotentialFraud:</label><br>
+        <input type="text" id="PotentialFraud" name="PotentialFraud" value="{{PotentialFraud}}"  readonly><br>
+
+        <label for="gender">gender:</label><br>
+        <input type="text" id="gender" name="gender" value="{{gender}}"  readonly><br>
+
+
+        <label for="race">Race:</label><br>
+        <input type="text" id="race" name="race" value="{{race}}" readonly><br>
+
+        <label for="RenalDiseaseIndicator">RenalDiseaseIndicator:</label><br>
+        <input type="text" id="RenalDiseaseIndicator" name="RenalDiseaseIndicator" value="{{RenalDiseaseIndicator}}" readonly><br>
+
+
+        
+        <label for="NoOfMonths_PartACov">No of Months Part A Coverage:</label><br>
+        <input type="number" id="NoOfMonths_PartACov" name="NoOfMonths_PartACov" value="{{NoOfMonths_PartACov}}" readonly><br>
+
+        <label for="NoOfMonths_PartBCov">No of Months Part B Coverage:</label><br>
+        <input type="number" id="NoOfMonths_PartBCov" name="NoOfMonths_PartBCov" value="{{NoOfMonths_PartBCov}}" readonly><br>
+
+        <label for="ChronicCond_Alzheimer">ChronicCond_Alzheimer:</label><br>
+        <input type="text" id="ChronicCond_Alzheimer" name="ChronicCond_Alzheimer" value="{{ChronicCond_Alzheimer}}" readonly><br>
+
+        <label for="ChronicCond_Heartfailure">ChronicCond_Heartfailure:</label><br>
+        <input type="text" id="ChronicCond_Heartfailure" name="ChronicCond_Heartfailure" value="{{ChronicCond_Heartfailure}}" readonly><br>
+
+        <label for="ChronicCond_KidneyDisease">ChronicCond_KidneyDisease:</label><br>
+        <input type="text" id="ChronicCond_KidneyDisease" name="ChronicCond_KidneyDisease" value="{{ChronicCond_KidneyDisease}}" readonly><br>
+
+        <label for="ChronicCond_Cancer">ChronicCond_Cancer:</label><br>
+        <input type="text" id="ChronicCond_Cancer" name="ChronicCond_Cancer" value="{{ChronicCond_Cancer}}" readonly><br>
+
+        <label for="ChronicCond_ObstrPulmonary">ChronicCond_ObstrPulmonary:</label><br>
+        <input type="text" id="ChronicCond_ObstrPulmonary" name="ChronicCond_ObstrPulmonary" value="{{ChronicCond_ObstrPulmonary}}" readonly><br>
+
+        <label for="ChronicCond_Depression">ChronicCond_Depression:</label><br>
+        <input type="text" id="ChronicCond_Depression" name="ChronicCond_Depression" value="{{ChronicCond_Depression}}" readonly><br>
+
+        <label for="ChronicCond_Diabetes">ChronicCond_Diabetes:</label><br>
+        <input type="text" id="ChronicCond_Diabetes" name="ChronicCond_Diabetes" value="{{ChronicCond_Diabetes}}" readonly><br>
+
+        <label for="ChronicCond_IschemicHeart">ChronicCond_IschemicHeart:</label><br>
+        <input type="text" id="ChronicCond_IschemicHeart" name="ChronicCond_IschemicHeart" value="{{ChronicCond_IschemicHeart}}" readonly><br>
+
+        <label for="ChronicCond_Osteoporasis">ChronicCond_Osteoporasis:</label><br>
+        <input type="text" id="ChronicCond_Osteoporasis" name="ChronicCond_Osteoporasis" value="{{ChronicCond_Osteoporasis}}" readonly><br>
+
+        <label for="ChronicCond_rheumatoidarthritis">ChronicCond_rheumatoidarthritis:</label><br>
+        <input type="text" id="ChronicCond_rheumatoidarthritis" name="ChronicCond_rheumatoidarthritis" value="{{ChronicCond_rheumatoidarthritis}}" readonly><br>
+
+        <label for="ChronicCond_stroke">ChronicCond_stroke:</label><br>
+        <input type="text" id="ChronicCond_stroke" name="ChronicCond_stroke" value="{{ChronicCond_stroke}}" readonly><br>
+
+
+
+        <label for="IPAnnualReimbursementAmt">IP Annual Reimbursement Amt:</label><br>
+        <input type="text" id="IPAnnualReimbursementAmt" name="IPAnnualReimbursementAmt" value="{{IPAnnualReimbursementAmt}}" readonly><br>
+
+        <label for="IPAnnualDeductibleAmt">IP Annual Deductible Amt:</label><br>
+        <input type="text" id="IPAnnualDeductibleAmt" name="IPAnnualDeductibleAmt"  value="{{IPAnnualDeductibleAmt}}"><br>
+
+        <label for="OPAnnualReimbursementAmt">OP Annual Reimbursement Amt:</label><br>
+        <input type="text" id="OPAnnualReimbursementAmt" name="OPAnnualReimbursementAmt" value="{{OPAnnualReimbursementAmt}}" readonly><br>
+
+        <label for="OPAnnualDeductibleAmt">OP Annual Deductible Amt:</label><br>
+        <input type="text" id="OPAnnualDeductibleAmt" name="OPAnnualDeductibleAmt" value="{{OPAnnualDeductibleAmt}}" readonly><br>
+
+        <input type="submit"  class="btn btn-primary" value="Submit">
+    </form>
+    
+</body>
+</html>
