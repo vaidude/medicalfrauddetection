@@ -1,6 +1,8 @@
 from django.contrib.auth import logout
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import redirect, render,get_object_or_404
+
+from sampleinsurance.settings import BASE_DIR
 from  .models  import reg,adminreg,agent,Patient,PredictionResult
 from django.contrib import messages
 from django.contrib.auth.validators import UnicodeUsernameValidator
@@ -10,9 +12,11 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 import numpy as np
 import pandas as pd
+import os
 
+abc=os.path.join(BASE_DIR,'Test_Beneficiarydata.csv')
 # Load the dataset
-df = pd.read_csv('C:\\Users\\vaiva\\OneDrive\\Desktop\\office files\\Test_Beneficiarydata.csv')
+df = pd.read_csv(abc)
 
 # Display the first few rows to understand the structure of the data
 print(df.head())
